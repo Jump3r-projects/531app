@@ -1,41 +1,59 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import CycleA from './CycleA';
+import CycleB from './CycleB';
+import CycleC from './CycleC';
+import Deload from './Deload';
+import CycleButtons from './CycleButtons';
+import Inputs from './Inputs';
+import './bench.css';
+
 
 class Bench extends Component {
     constructor(props) {
         super(props)
         this.state = {
             value: [0],
-            bar: [20],
+            bar: [0],
             isToggle: false,
             isKilos: false,
             isBarKilos: false,
             isDeload: false,
-            pc1: [65],
-            pc2: [75],
-            pc3: [85],
-            rep1: [5],
-            rep2: [5],
-            rep3: [5],
+            isCycleA: true,
+            isCycleB: false,
+            isCycleC: false,
+            rSelected: 1,
+            warmupTotal: [],
+            cycleATotal: [],
+            cycleBTotal: [],
+            cycleCTotal: [],
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.warmupClick = this.warmupClick.bind(this);
         this.isKilos = this.isKilos.bind(this);
         this.isBarKilos = this.isBarKilos.bind(this);
+        this.lessBar = this.lessBar.bind(this);
+        this.warmupToggle = this.warmupToggle.bind(this);
         this.cycleA = this.cycleA.bind(this);
         this.cycleB = this.cycleB.bind(this);
         this.cycleC = this.cycleC.bind(this);
         this.deload = this.deload.bind(this);
-        this.lessBar = this.lessBar.bind(this);
+        this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     }
 
+    onRadioBtnClick(rSelected) {
+        this.setState({ rSelected });
+      }
     handleChange(e) {
         e.preventDefault();
         this.setState({
             value: e.target.value,
+            warmupTotal: e.target.value*4/10*5+e.target.value*5/10*5+e.target.value*6/10*3,
+            cycleATotal: e.target.value*65/100*5+e.target.value*75/100*5+e.target.value*85/100*5,
+            cycleBTotal: e.target.value*70/100*3+e.target.value*80/100*3+e.target.value*90/100*3,
+            cycleCTotal: e.target.value*75/100*5+e.target.value*85/100*3+e.target.value*95/100*1,
         })
+    
     }   
 
     lessBar(f) {
@@ -45,7 +63,7 @@ class Bench extends Component {
         })
     }   
 
-    warmupClick(e) {
+    warmupToggle(e) {
         this.setState({
             isToggle: !this.state.isToggle,
         })
@@ -67,7 +85,6 @@ class Bench extends Component {
        }
     }
 
-
     isBarKilos(e) {
         this.setState({
             isBarKilos: !this.state.isBarKilos,
@@ -84,166 +101,113 @@ class Bench extends Component {
         }
      }
 
+     cycleA() {
+         this.setState({
+             isCycleA: true,
+             isCycleB: false,
+             isCycleC: false,
+             isDeload: false,
+             rSelected: 1,
+         })
+     }
 
-    cycleA() {
+     cycleB() {
         this.setState({
-            pc1: 65,
-            pc2: 75,
-            pc3: 85,
-            rep1: 5,
-            rep2: 5,
-            rep3: 5,
-        })
-    }
-
-    cycleB() {
-        this.setState({
-            pc1: 70,
-            pc2: 80,
-            pc3: 90,
-            rep1: 3,
-            rep2: 3,
-            rep3: 3,
+            isCycleA: false,
+            isCycleB: true,
+            isCycleC: false,
+            isDeload: false,
+            rSelected: 2,
         })
     }
 
     cycleC() {
         this.setState({
-            pc1: 75,
-            pc2: 85,
-            pc3: 95,
-            rep1: 5,
-            rep2: 3,
-            rep3: 1,
+            isCycleA: false,
+            isCycleB: false,
+            isCycleC: true,
+            isDeload: false,
+            rSelected: 3,
         })
     }
 
     deload() {
         this.setState({
-            pc1: 40,
-            pc2: 50,
-            pc3: 60,
-            rep1: 5,
-            rep2: 5,
-            rep3: 5,
+            isCycleA: false,
+            isCycleB: false,
+            isCycleC: false,
+            isDeload: true,
+            rSelected: 0,
         })
-
-        
     }
 
+
+    
     render() {
         let bar = this.state.bar;
         let weight = this.state.value;
-        let mass = !this.state.isKilos ? 'Kg' : 'Lb';
-        let barMass = !this.state.isBarKilos ? 'Kg' : 'Lb';
-        let pc1 = this.state.pc1;
-        let pc2 = this.state.pc2;
-        let pc3 = this.state.pc3;
-        let rep1 = this.state.rep1;
-        let rep2 = this.state.rep2;
-        let rep3 = this.state.rep3;
+        function round(num) {
+            return Math.round(num*2)/2;
+        }
 
-        if (this.state.deload === true) {
             return (
-                <div>
-                    <div>
-                    Bench: 
-                        <span>
-                            <input type="number" min='0' onChange={this.handleChange} value={weight}></input>
-                            <Button onClick={this.isKilos}>{mass}</Button>
-                        </span>
+                <div className="body">
+                    <Inputs handleChange={this.handleChange}
+                            bar={bar}
+                            weight={weight}
+                            lessBar={this.lessBar}
+                            isBarKilos={this.isBarKilos}
+                            isKilos={this.isKilos}
+                            className="Inputs"
+                    />
+                    <div className="Cycle-Buttons">
+                        <CycleButtons warmupToggle={this.warmupToggle} 
+                                      deload={this.deload} 
+                                      cycleA={this.cycleA} 
+                                      cycleB={this.cycleB} 
+                                      cycleC={this.cycleC}
+                                      rSelected={this.state.rSelected}
+                        />  
                     </div>
+                    
                     <div>
-                    Bar:
-                        <span>
-                            <input type="number" min='0' onChange={this.lessBar} value={bar}></input>
-                            <Button onClick={this.isBarKilos}>{barMass}</Button>
-                        </span>
-                    </div>
-                    <div>
-                        <Button className="btn btn-primary"
-                                onClick={this.warmupClick}>
-                                Warm up
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleA}>
-                                Cycle A
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleB}>
-                                Cycle B
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleC}>
-                                Cycle C
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.deload}>
-                                Deload
-                        </Button>
-    
-                        <div className='container'
-                             style={{display: this.state.isToggle ? 'block' : 'none'}} 
-                             >
-                            <div>40% Warmup Set 1 x 5 : {Math.round((weight-bar)*4/10).toFixed(1)}{mass}</div>
-                            <div>50% Warmup Set 2 x 5 : {Math.round((weight-bar)*5/10).toFixed(1)}{mass}</div>
-                            <div>60% Warmup Set 3 x 3 : {Math.round((weight-bar)*6/10).toFixed(1)}{mass}</div>
+                        <div style={{ display: this.state.isCycleA ? 'inline' : 'none' }}>
+                            <CycleA weight={weight} 
+                                    bar={bar} 
+                                    isToggle={this.state.isToggle} 
+                                    round={round}
+                                    cycleATotal={this.state.cycleATotal}
+                                    warmupTotal={this.state.warmupTotal}
+                                    />
+                        </div>
+                        <div style={{ display: this.state.isCycleB ? 'inline' : 'none' }}>
+                            <CycleB weight={weight} 
+                                    bar={bar} 
+                                    isToggle={this.state.isToggle} 
+                                    round={round}
+                                    cycleBTotal={this.state.cycleBTotal}
+                                    warmupTotal={this.state.warmupTotal}
+                                    />
+                        </div>
+                        <div style={{ display: this.state.isCycleC ? 'inline' : 'none' }}>
+                            <CycleC weight={weight} 
+                                    bar={bar} 
+                                    isToggle={this.state.isToggle} 
+                                    round={round}
+                                    cycleCTotal={this.state.cycleCTotal}
+                                    warmupTotal={this.state.warmupTotal}
+                                    />
+                        </div>
+                        <div style={{ display: this.state.isDeload ? 'inline' : 'none' }}>
+                            <Deload weight={weight} 
+                                    bar={bar}
+                                    round={round}
+                                    />
                         </div>
                     </div>
-    
-                    <div>{pc1}%: Working Set 1 {rep1}x {Math.round((weight-bar)*pc1/100).toFixed(1)}{mass}</div>
-                    <div>{pc2}%: Working Set 2 {rep2}x {Math.round((weight-bar)*pc2/100).toFixed(1)}{mass}</div>
-                    <div>{pc3}%: Working Set 3 {rep3}x+ {Math.round((weight-bar)*pc3/100).toFixed(1)}{mass}</div>
-    
                 </div>
             )
-        } else {
-            return (
-                <div>
-                    <div>
-                    Bench: 
-                        <span>
-                            <input type="number" min='0' onChange={this.handleChange} value={weight}></input>
-                            <Button onClick={this.isKilos}>{mass}</Button>
-                        </span>
-                    </div>
-                    <div>
-                    Bar:
-                        <span>
-                            <input type="number" min='0' onChange={this.lessBar} value={bar}></input>
-                            <Button onClick={this.isBarKilos}>{barMass}</Button>
-                        </span>
-                    </div>
-                    <div>
-                        <Button className="btn btn-primary">
-                                Warm up
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleA}>
-                                Cycle A
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleB}>
-                                Cycle B
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.cycleC}>
-                                Cycle C
-                        </Button>
-                        <Button className="btn btn-primary"
-                                onClick={this.deload}>
-                                Deload
-                        </Button>
-                    </div>
-                    <div>{pc1}%: Working Set 1 {rep1}x {Math.round((weight-bar)*pc1/100).toFixed(1)}{mass}</div>
-                    <div>{pc2}%: Working Set 2 {rep2}x {Math.round((weight-bar)*pc2/100).toFixed(1)}{mass}</div>
-                    <div>{pc3}%: Working Set 3 {rep3}x+ {Math.round((weight-bar)*pc3/100).toFixed(1)}{mass}</div>
-    
-                </div>
-            )
-        }
-        
-    }
+    }   
 }
 
 export default Bench
