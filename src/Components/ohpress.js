@@ -8,7 +8,7 @@ import Inputs from './Inputs';
 import '../App.css';
 
 
-class Bench extends Component {
+class OHPress extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -160,16 +160,16 @@ class Bench extends Component {
 
             return (
                 <div className="body">
-                    <div className="liftHeader">BENCH</div> 
+                    <div className="liftHeader">OH PRESS</div> 
                     <Inputs handleChange={this.handleChange}
-                                bar={bar}
-                                weight={weight}
-                                lessBar={this.lessBar}
-                                isBarKilos={this.isBarKilos}
-                                isKilos={this.isKilos}
-                                className="Inputs"
-                                tMass={this.state.isKilos}
-                                bMass={this.state.isBarKilos}
+                            bar={bar}
+                            weight={weight}
+                            lessBar={this.lessBar}
+                            isBarKilos={this.isBarKilos}
+                            isKilos={this.isKilos}
+                            className="Inputs"
+                            tMass={this.state.isKilos}
+                            bMass={this.state.isBarKilos}
                             round={round}
                     />
                     <div className="Cycle-Buttons">
@@ -229,4 +229,4 @@ class Bench extends Component {
     }   
 }
 
-export default Bench
+export default OHPress

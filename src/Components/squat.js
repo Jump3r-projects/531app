@@ -8,7 +8,7 @@ import Inputs from './Inputs';
 import '../App.css';
 
 
-class Bench extends Component {
+class Squat extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -160,7 +160,7 @@ class Bench extends Component {
 
             return (
                 <div className="body">
-                    <div className="liftHeader">BENCH</div> 
+                    <div className="liftHeader">SQUAT</div> 
                     <Inputs handleChange={this.handleChange}
                                 bar={bar}
                                 weight={weight}
@@ -178,7 +178,7 @@ class Bench extends Component {
                                   cycleA={this.cycleA} 
                                   cycleB={this.cycleB} 
                                   cycleC={this.cycleC}
-                                  rSelected={this.state.rSelected}
+                                   rSelected={this.state.rSelected}
                     />  
                     </div>    
                     <div>
@@ -229,4 +229,4 @@ class Bench extends Component {
     }   
 }
 
-export default Bench
+export default Squat

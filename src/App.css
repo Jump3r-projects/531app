@@ -1,25 +1,13 @@
 .App {
   align-items: center;
-  width: 60%;
+  width: 70%;
   justify-content: center;
-  display: grid; 
+  display: block; 
   padding: 0;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 10%;
-  margin-bottom: 10%;  
+  margin-top: 5%; 
+  margin-left: 5%;
   position: absolute;
-}
-
-.App-header {
-  background-color:  #000000;
-  color: white;
-  width: 100%;
-  justify-content: center;
-  display: grid; 
-  padding: 10px;
-  margin-left: 0;
-  margin-right: 0;
+  border: white solid 2px;
 }
 
 .Bench {
@@ -31,11 +19,6 @@
   padding: 10px;
   margin-left: 0;
   margin-right: 0;
-}
-
-.body {
-  margin: 0;
-  padding-bottom: 10%;
 }
 
 .Cycle {
@@ -65,4 +48,43 @@
 
 .RowHeader {
   font-weight: bold;
+}
+
+.body {
+  background-color: grey;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 10%;
+}
+
+.Cycle-Buttons {
+text-align: center;
+padding: 20px;
+}
+
+.Inputs {
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+
+.scaleWarning {
+  color: red;
+  text-align: center;
+}
+
+.nav-tabs {
+  background-color:#e9f4ff;
+  text-align: center; 
+}
+
+.liftHeader {
+  background: black;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 2px; 
 }

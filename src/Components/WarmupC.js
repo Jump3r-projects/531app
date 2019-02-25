@@ -22,7 +22,7 @@ class WarmupC extends Component {
                 <Col style={toggle}>60</Col>
                 <Col style={toggle}>3</Col>
                 <Col style={toggle}>{(round(weight*6/10)).toFixed(1)}</Col>
-                <Col style={toggle}>{((round(weight*6/10))-bar).toFixed(1)}</Col>        
+                <Col style={toggle}>{(Math.max(0,(round(weight*6/10))-bar)).toFixed(1)}</Col>        
             </Row>            
         )
     }
