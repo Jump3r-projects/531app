@@ -9,18 +9,10 @@ import './App.css'
 import NaviBar from './Components/NaviBar';
 import { TabPane, TabContent } from 'reactstrap';
 
-
 class App extends Component {
-  constructor(props) {
-    super(props);
+  state = { activeTab: '1' };
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      activeTab: '1'
-    };
-  }
-
-  toggle(tab) {
+  toggle = tab => {
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab
@@ -28,6 +20,7 @@ class App extends Component {
     }
   }
 
+  
   render() {
     return (
       <div>
@@ -35,7 +28,16 @@ class App extends Component {
         <Tabs toggle={this.toggle}
               activeTab={this.state.activeTab}/>
         <div className="App">
-          <div>
+          <div className='mainbody'>
+            <br />
+            <h4>Based on <a href='https://jimwendler.com/'>Wendler's 531 strength program</a></h4>
+            <ul> 
+              <li>Each week is a different cycle</li>
+              <li>Maintain 1rm for all cycles</li>
+              <li>Take a deload/rest week to recover</li>
+              <li>Increase 1rm by 2.5/5kg and start new cycles</li>
+              <li>Divide W-B by 2 to determine how much weight to put on each side of bar</li>
+            </ul>
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId='1'>
                 <Bench />

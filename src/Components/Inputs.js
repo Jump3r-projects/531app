@@ -1,47 +1,50 @@
 import { Input, Button, InputGroup, InputGroupAddon } from 'reactstrap';
-import React, { Component } from 'react';
+import React from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 
-class Inputs extends Component {
-    render() {    
-        let weight = this.props.weight;
-        return (
-            <div>
-                <InputGroup>
-                    <InputGroupAddon addon="prepend">1 rep max</InputGroupAddon>
-                        <Input type="number" 
-                            min='0' 
-                            onChange={this.props.handleChange} 
-                            value={weight}
-                            onInput="validity.valid||(value='');" />
-                        
-                            <Button color='info' 
-                                    size="sm" 
-                                    onClick={this.props.isKilos}>
-                            {!this.props.tMass? 'kg ' : 'lb '}{<FaExchangeAlt />}{this.props.tMass? ' kg' : ' lb'}
-                            </Button>          
-                </InputGroup>
+const Inputs = props => (
+    <div>
+        <InputGroup>
+            <InputGroupAddon addonType="prepend">1 rep max</InputGroupAddon>
+                <Input type="number" 
+                    onChange={props.handleChange} 
+                    value={props.weight} />
                 
-                <br />
+                    <Button color='info' 
+                            size="sm" 
+                            onClick={props.isKilos}>
+                    {!props.tMass? 'kg ' : 'lb '}{<FaExchangeAlt />}{props.tMass? ' kg' : ' lb'}
+                    </Button>
+                    <Button color='danger'
+                        size="sm"
+                        onClick={props.resetWeight}>
+                    Reset
+                </Button>          
+        </InputGroup>
+        
+        <br />
 
-                <InputGroup>
-                    <InputGroupAddon addon="prepend">
-                    Bar (B)
-                    </InputGroupAddon>
-                        <Input type="number" 
-                            min='0' 
-                            onChange={this.props.lessBar} 
-                            value={this.props.bar} />             
-                        <Button color='info' 
-                                size="sm" 
-                                onClick={this.props.isBarKilos}>
-                            {!this.props.bMass? 'kg ' : 'lb '}{<FaExchangeAlt />}{this.props.bMass? ' kg' : ' lb'}
-                        </Button>
-                </InputGroup>
-                   
-            </div>
-        )
-    }
-}
-
+        <InputGroup>
+            <InputGroupAddon addonType="prepend">
+            Bar (B)
+            </InputGroupAddon>
+                <Input type="number" 
+                    min='0' 
+                    onChange={props.lessBar} 
+                    value={props.bar} />             
+                <Button color='info' 
+                        size="sm" 
+                        onClick={props.isBarKilos}>
+                    {!props.bMass? 'kg ' : 'lb '}{<FaExchangeAlt />}{props.bMass? ' kg' : ' lb'}
+                </Button>
+                <Button color='danger'
+                        size="sm"
+                        onClick={props.resetBar}>
+                    Reset
+                </Button>          
+        </InputGroup>
+            
+    </div>
+)
+    
 export default Inputs;

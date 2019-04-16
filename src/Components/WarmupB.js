@@ -4,11 +4,11 @@ import { Row, Col } from 'reactstrap';
 
 class WarmupB extends Component {
     render() {
-        let weight = this.props.weight;
-        let bar = this.props.bar;
-        let toggle = {display: this.props.isToggle? 'block' : 'none'}
+        const { weight, bar, isToggle } = this.props;
+      
+        let toggle = {display: isToggle? 'block' : 'none'}
         let rowCollapse; 
-        if (this.props.isToggle) {
+        if (isToggle) {
             rowCollapse = "row"
         } else {
             rowCollapse = "Row-Collapse"
@@ -16,6 +16,7 @@ class WarmupB extends Component {
         function round(num) {
             return Math.round(num*2)/2;
         }    
+
         return (
             <Row className={rowCollapse}>
                 <Col style={toggle}>B</Col>

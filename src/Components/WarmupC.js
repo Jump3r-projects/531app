@@ -4,11 +4,10 @@ import { Row, Col } from 'reactstrap';
 
 class WarmupC extends Component {
     render() {
-        let weight = this.props.weight;
-        let bar = this.props.bar;
-        let toggle = {display: this.props.isToggle? 'block' : 'none'}
+        const { weight, bar, isToggle } = this.props;
+        let toggle = {display: isToggle? 'block' : 'none'}
         let rowCollapse; 
-        if (this.props.isToggle) {
+        if (isToggle) {
             rowCollapse = "row"
         } else {
             rowCollapse = "Row-Collapse"

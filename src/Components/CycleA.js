@@ -8,24 +8,22 @@ import WarmupC from './WarmupC';
 
 class CycleA extends Component {
     render() {
-        let weight = this.props.weight;
-        let bar = this.props.bar;
-        let round = this.props.round;
+        const { weight, bar, round, isToggle, cycleATotal, warmupTotal, bMass, tMass } = this.props;
         let totalWeight = 0; 
-        if(this.props.isToggle) {
-            totalWeight = this.props.cycleATotal + this.props.warmupTotal;
+        if(isToggle) {
+            totalWeight = cycleATotal + warmupTotal;
         } else {
-            totalWeight = this.props.cycleATotal;
+            totalWeight = cycleATotal;
         }
 
-    if(this.props.tMass === this.props.bMass) {
+    if(tMass === bMass) {
         return (
             <div className='Cycle'>
                 <Container className='Table'>
                     <TableHeader />
-                    <WarmupA isToggle={this.props.isToggle} weight={weight} bar={bar}/>
-                    <WarmupB isToggle={this.props.isToggle} weight={weight} bar={bar}/>
-                    <WarmupC isToggle={this.props.isToggle} weight={weight} bar={bar}/>
+                    <WarmupA isToggle={isToggle} weight={weight} bar={bar}/>
+                    <WarmupB isToggle={isToggle} weight={weight} bar={bar}/>
+                    <WarmupC isToggle={isToggle} weight={weight} bar={bar}/>
 
                     <Row className="row">
                         <Col>1</Col>
@@ -56,8 +54,8 @@ class CycleA extends Component {
                         <Col></Col>
                         <Col></Col>
                         <Col>{round(totalWeight).toFixed(1)}  
-                            {this.props.tMass === true && this.props.bMass === true? " lb+" : null}
-                            {this.props.tMass === false && this.props.bMass === false? " kg+" : null}</Col>
+                            {tMass === true && bMass === true? " lb+" : null}
+                            {tMass === false && bMass === false? " kg+" : null}</Col>
                         <Col></Col>
                     </Row>
                 </Container>
@@ -68,9 +66,9 @@ class CycleA extends Component {
             <div className='Cycle'>
                 <Container className='Table'>
                     <TableHeader />
-                    <WarmupA isToggle={this.props.isToggle} weight={0} bar={0}/>
-                    <WarmupB isToggle={this.props.isToggle} weight={0} bar={0}/>
-                    <WarmupC isToggle={this.props.isToggle} weight={0} bar={0}/>
+                    <WarmupA isToggle={isToggle} weight={0} bar={0}/>
+                    <WarmupB isToggle={isToggle} weight={0} bar={0}/>
+                    <WarmupC isToggle={isToggle} weight={0} bar={0}/>
                     <Row className="row">
                         <Col>1</Col>
                         <Col>65</Col>

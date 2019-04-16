@@ -5,13 +5,12 @@ import TableHeader from './TableHeader';
 
 class Deload extends Component {
     render() {
-        let weight = this.props.weight;
-        let bar = this.props.bar;
+        const { weight, bar, tMass, bMass } = this.props;
         function round(num) {
             return Math.round(num*2)/2;
         }
         
-    if(this.props.tMass === this.props.bMass) {
+    if(tMass === bMass) {
         return (
             <div className='Cycle'>
                 <Container className='Table'>
@@ -43,8 +42,8 @@ class Deload extends Component {
                         <Col></Col>
                         <Col></Col>
                         <Col>{(round(weight*(4/10+5/10+6/10)*5)).toFixed(1)}
-                            {this.props.tMass === true && this.props.bMass === true? " lb" : null}
-                            {this.props.tMass === false && this.props.bMass === false? " kg" : null}</Col>
+                            {tMass === true && bMass === true? " lb" : null}
+                            {tMass === false && bMass === false? " kg" : null}</Col>
                         <Col></Col>
                     </Row>
                 </Container>
