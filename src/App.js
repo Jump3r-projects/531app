@@ -5,6 +5,7 @@ import Squat from './Components/squat';
 import OHPress from './Components/ohpress';
 import Other from './Components/other';
 import Tabs from './Components/Tabs';
+import Description from './Components/Description';
 import './App.css'
 import NaviBar from './Components/NaviBar';
 import { TabPane, TabContent } from 'reactstrap';
@@ -20,24 +21,16 @@ class App extends Component {
     }
   }
 
-  
   render() {
     return (
       <div>
         <NaviBar />
         <Tabs toggle={this.toggle}
-              activeTab={this.state.activeTab}/>
+              activeTab={this.state.activeTab} />
         <div className="App">
           <div className='mainbody'>
             <br />
-            <h4>Based on <a href='https://jimwendler.com/'>Wendler's 531 strength program</a></h4>
-            <ul> 
-              <li>Each week is a different cycle</li>
-              <li>Maintain 1rm for all cycles</li>
-              <li>Take a deload/rest week to recover</li>
-              <li>Increase 1rm by 2.5/5kg and start new cycles</li>
-              <li>Divide W-B by 2 to determine how much weight to put on each side of bar</li>
-            </ul>
+            <Description />
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId='1'>
                 <Bench />

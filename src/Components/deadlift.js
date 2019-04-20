@@ -155,7 +155,7 @@ class Deadlift extends Component {
 
             return (
                 <div className="body">
-                    <div className="liftHeader">BENCH</div> 
+                    <div className="liftHeader">DEADLIFT</div> 
                     <Inputs className="Inputs"
                             handleChange={this.handleChange}
                             lessBar={this.lessBar}

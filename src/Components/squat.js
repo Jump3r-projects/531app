@@ -155,7 +155,7 @@ class Squat extends Component {
 
             return (
                 <div className="body">
-                    <div className="liftHeader">BENCH</div> 
+                    <div className="liftHeader">SQUAT</div> 
                     <Inputs className="Inputs"
                             handleChange={this.handleChange}
                             lessBar={this.lessBar}
