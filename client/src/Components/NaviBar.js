@@ -4,8 +4,7 @@ import {
   Navbar,
   Nav,
   NavbarBrand,
-  NavItem,
-  Container
+  NavItem
 } from "reactstrap";
 import { connect } from "react-redux";
 import React, { Component, Fragment } from "react";
@@ -54,19 +53,15 @@ class NaviBar extends Component {
     );
 
     return (
-      <div>
-        <Navbar color="dark" dark expand="sm">
-          <Container>
-            <NavbarBrand href="/">5/3/1</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                {isAuthenticated ? authLinks : guestLinks}
-              </Nav>
-            </Collapse>
-          </Container>
-        </Navbar>
-      </div>
+      <Navbar color="dark" dark expand="sm">
+        <NavbarBrand href="/">5/3/1</NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            {isAuthenticated ? authLinks : guestLinks}
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }

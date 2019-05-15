@@ -2,20 +2,16 @@ root {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  display: flex; 
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  border: white solid 2px;
+/* NavBar */
+.nav-tabs {
+  background-color: #e9f4ff;
+  text-align: center;
 }
 
 h4 {
@@ -23,26 +19,34 @@ h4 {
   margin: 1rem 0;
 }
 
-.Bench {
-  background-color:  #000000;
-  color: white;
-  width: 100%;
+/* Body  */
+.mainbody {
+  display: grid;
   justify-content: center;
-  display: grid; 
-  padding: 10px;
-  margin-left: 0;
-  margin-right: 0;
 }
 
-.Cycle {
+/* Component */
+.liftHeader {
+  background: black;
+  color: white;
+  font-size: 1.2rem;
   text-align: center;
-  padding: 0;
-  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
 }
 
+/* Table */
 .Table {
   color: white;
   background-color: black;
+  text-align: center;
+}
+
+.col {
+  margin: 0;
+  padding: 0;
 }
 
 .row {
@@ -50,36 +54,16 @@ h4 {
   border-bottom: 1px #d0d0d0 solid;
 }
 
-.col {
- margin: auto;
-}
-
-.Row-Collapse {
-  padding: 0;
-  border-bottom: 0;
+.row.form-group {
+  margin-right: 0;
+  margin-left: 0;
+  background: white;
+  color: black;
+  border: none;
 }
 
 .RowHeader {
   font-weight: bold;
-}
-
-.body {
-  background-color: grey;
-  color: black;
-  margin-top: 0;
-  margin-bottom: 10%;
-}
-
-.Cycle-Buttons {
-text-align: center;
-padding: 20px;
-}
-
-.Inputs {
-  text-align: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
 }
 
 .scaleWarning {
@@ -87,21 +71,17 @@ padding: 20px;
   text-align: center;
 }
 
-.nav-tabs {
-  background-color:#e9f4ff;
-  text-align: center; 
-}
-
-.liftHeader {
-  background: black;
-  color: white;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-weight: bold;
-  letter-spacing: 2px; 
-}
-
 .btn.btn-sm {
   color: white;
+}
+
+form,
+.container {
+  background: black;
+}
+
+.cycleButtonGroup {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
 }

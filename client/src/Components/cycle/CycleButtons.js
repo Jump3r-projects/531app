@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, ButtonGroup, Container } from "reactstrap";
+import { Button, ButtonGroup } from "reactstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {
@@ -20,7 +20,7 @@ class CycleButtons extends Component {
 
   render() {
     return (
-      <Container>
+      <div className="cycleButtonGroup">
         <Button
           color="success"
           size="sm"
@@ -33,7 +33,6 @@ class CycleButtons extends Component {
           <Button
             color="primary"
             size="sm"
-            className="PrimaryButton"
             onClick={this.props.setCycleA}
             active={this.props.isCycleA === true}
           >
@@ -42,7 +41,6 @@ class CycleButtons extends Component {
           <Button
             color="primary"
             size="sm"
-            className="PrimaryButton"
             onClick={this.props.setCycleB}
             active={this.props.isCycleB === true}
           >
@@ -51,23 +49,21 @@ class CycleButtons extends Component {
           <Button
             color="primary"
             size="sm"
-            className="PrimaryButton"
             onClick={this.props.setCycleC}
             active={this.props.isCycleC === true}
           >
             Cycle C
           </Button>
           <Button
-            color="danger"
+            color="warning"
             size="sm"
-            className="DangerButton"
             onClick={this.props.setDeload}
             active={this.props.isDeload === true}
           >
             Deload
           </Button>{" "}
         </ButtonGroup>{" "}
-      </Container>
+      </div>
     );
   }
 }
