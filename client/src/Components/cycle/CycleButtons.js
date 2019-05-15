@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { Button, ButtonGroup, Container } from "reactstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import "../App.css";
 import {
   setCycleA,
   setCycleB,
   setCycleC,
   setDeload,
   setWarmUp
-} from "../actions/setCycleActions";
+} from "../../actions/setCycleActions";
 
 class CycleButtons extends Component {
   static propTypes = {

@@ -1,8 +1,8 @@
 import { SET_WEIGHT, SET_BARWEIGHT } from "../actions/types";
 
 const initialState = {
-  weight: 0,
-  barWeight: 0,
+  weight: 10.0,
+  barWeight: 0.0,
   isKilos: true,
   isBarKilos: true
 };

@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
 import "../App.css";
-import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { round } from "../actions/calculateFunctions";
+import RowTemp from "./table/RowTemp";
 
 class Warmup extends Component {
   state = {
@@ -17,32 +16,14 @@ class Warmup extends Component {
   };
 
   render() {
-    const { weight, bar, warmUpToggle } = this.props;
     const { row1, row2, row3 } = this.state;
+    const { warmUpToggle } = this.props;
 
     return warmUpToggle ? (
       <Fragment>
-        <Row>
-          {row1.map(e => (
-            <Col>{e}</Col>
-          ))}
-          <Col>{round((weight * 4) / 10).toFixed(1)}</Col>
-          <Col>{(round((weight * 4) / 10) - bar).toFixed(1)}</Col>
-        </Row>
-        <Row>
-          {row2.map(e => (
-            <Col>{e}</Col>
-          ))}
-          <Col>{round((weight * 5) / 10).toFixed(1)}</Col>
-          <Col>{(round((weight * 5) / 10) - bar).toFixed(1)}</Col>
-        </Row>
-        <Row>
-          {row3.map(e => (
-            <Col>{e}</Col>
-          ))}
-          <Col>{round((weight * 6) / 10).toFixed(1)}</Col>
-          <Col>{(round((weight * 6) / 10) - bar).toFixed(1)}</Col>
-        </Row>
+        <RowTemp row={row1} />
+        <RowTemp row={row2} />
+        <RowTemp row={row3} />
       </Fragment>
     ) : null;
   }

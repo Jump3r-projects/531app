@@ -4,35 +4,31 @@ import { connect } from "react-redux";
 import { round } from "../../actions/calculateFunctions";
 import PropTypes from "prop-types";
 
-class DeloadR1Dyn extends Component {
-  state = {
-    bar: 0,
-    barWeight: 0
-  };
+class RowDyn extends Component {
   static propTypes = {
     weight: PropTypes.Number,
     barWeight: PropTypes.Number,
     round: PropTypes.func
   };
   render() {
-    const { weight, barWeight } = this.props;
-    let res1 = round((weight * 40) / 100).toFixed(1);
-    let res2 = (round((weight * 40) / 100) - barWeight).toFixed(1);
+    const { weight, barWeight, row } = this.props;
+    const res1 = round((weight * row[1]) / 100);
+    const res2 = round((weight * row[1]) / 100) - barWeight;
     return (
       <Fragment>
-        <Col>{NaN ? "0" : res1}</Col>
-        <Col>{NaN ? "0" : res2}</Col>
+        <Col>{res1.toFixed(1)}</Col>
+        <Col>{res2.toFixed(1)}</Col>
       </Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  weight: state.weight,
-  barWeight: state.barWeight
+  weight: state.weight.weight,
+  barWeight: state.weight.barWeight
 });
 
 export default connect(
   mapStateToProps,
   { round }
-)(DeloadR1Dyn);
+)(RowDyn);

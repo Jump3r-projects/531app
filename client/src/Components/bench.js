@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import CycleA from "./CycleA";
-import CycleB from "./CycleB";
-import CycleC from "./CycleC";
-import Deload from "./Deload";
+import Cycles from "./cycle/Cycles";
 import { connect } from "react-redux";
-import CycleButtons from "./CycleButtons";
+import CycleButtons from "./cycle/CycleButtons";
 import Inputs from "./Inputs";
-import "../App.css";
 import { round } from "../actions/calculateFunctions";
+import { setWeight, setBarWeight } from "../actions/weightActions";
 
 class Bench extends Component {
   state = {
@@ -140,15 +137,14 @@ class Bench extends Component {
   render() {
     const {
       bar,
-      cycleATotal,
-      cycleBTotal,
-      cycleCTotal,
-      warmupTotal,
+      //   cycleATotal,
+      //   cycleBTotal,
+      //   cycleCTotal,
+      //   warmupTotal,
       isKilos,
       isBarKilos,
       weight
     } = this.state;
-    const { isCycleA, isCycleB, isCycleC, isDeload } = this.props;
 
     return (
       <div className="body">
@@ -170,63 +166,13 @@ class Bench extends Component {
         <div className="Cycle-Buttons">
           <CycleButtons />
         </div>
-        <div>
-          <div style={{ display: isCycleA ? "inline" : "none" }}>
-            <CycleA
-              weight={weight}
-              bar={bar}
-              round={round}
-              cycleATotal={cycleATotal}
-              warmupTotal={warmupTotal}
-              tMass={isKilos}
-              bMass={isBarKilos}
-            />
-          </div>
-          <div style={{ display: isCycleB ? "inline" : "none" }}>
-            <CycleB
-              weight={weight}
-              bar={bar}
-              round={round}
-              cycleBTotal={cycleBTotal}
-              warmupTotal={warmupTotal}
-              tMass={isKilos}
-              bMass={isBarKilos}
-            />
-          </div>
-          <div style={{ display: isCycleC ? "inline" : "none" }}>
-            <CycleC
-              weight={weight}
-              bar={bar}
-              round={round}
-              cycleCTotal={cycleCTotal}
-              warmupTotal={warmupTotal}
-              tMass={isKilos}
-              bMass={isBarKilos}
-            />
-          </div>
-          <div style={{ display: isDeload ? "inline" : "none" }}>
-            <Deload
-              weight={weight}
-              bar={bar}
-              round={round}
-              tMass={isKilos}
-              bMass={isBarKilos}
-            />
-          </div>
-        </div>
+        <Cycles />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  isCycleA: state.setCycle.isCycleA,
-  isCycleB: state.setCycle.isCycleB,
-  isCycleC: state.setCycle.isCycleC,
-  isDeload: state.setCycle.isDeload
-});
-
 export default connect(
-  mapStateToProps,
-  { round }
+  null,
+  { round, setWeight, setBarWeight }
 )(Bench);

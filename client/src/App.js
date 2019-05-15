@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Bench from "./Components/bench";
-import Deadlift from "./Components/deadlift";
-import Squat from "./Components/squat";
-import OHPress from "./Components/ohpress";
-import Other from "./Components/other";
+// import Deadlift from "./Components/deadlift";
+// import Squat from "./Components/squat";
+// import OHPress from "./Components/ohpress";
+// import Other from "./Components/other";
 import Tabs from "./Components/Tabs";
 import Description from "./Components/Description";
 import "./App.css";
@@ -48,21 +48,13 @@ class App extends Component {
                   <Bench />
                 </TabPane>
 
-                <TabPane tabId="2">
-                  <Deadlift />
-                </TabPane>
+                <TabPane tabId="2">{/* <Deadlift /> */}</TabPane>
 
-                <TabPane tabId="3">
-                  <Squat />
-                </TabPane>
+                <TabPane tabId="3">{/* <Squat /> */}</TabPane>
 
-                <TabPane tabId="4">
-                  <OHPress />
-                </TabPane>
+                <TabPane tabId="4">{/* <OHPress /> */}</TabPane>
 
-                <TabPane tabId="5">
-                  <Other />
-                </TabPane>
+                <TabPane tabId="5">{/* <Other /> */}</TabPane>
               </TabContent>
             </div>
           </div>
