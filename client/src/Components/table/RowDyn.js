@@ -10,14 +10,17 @@ class RowDyn extends Component {
     barWeight: PropTypes.Number,
     round: PropTypes.func
   };
+
   render() {
     const { weight, barWeight, row } = this.props;
-    const res1 = round((weight * row[1]) / 100);
-    const res2 = round((weight * row[1]) / 100) - barWeight;
     return (
       <Fragment>
-        <Col>{res1.toFixed(1)}</Col>
-        <Col>{res2.toFixed(1)}</Col>
+        <Col className="no-pad">
+          {round((weight * row[1]) / 100).toFixed(1)}
+        </Col>
+        <Col className="no-pad">
+          {(round((weight * row[1]) / 100) - barWeight).toFixed(1)}
+        </Col>
       </Fragment>
     );
   }

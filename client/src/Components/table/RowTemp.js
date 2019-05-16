@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import { connect } from "react-redux";
 import RowDyn from "./RowDyn";
 import BlankRow from "./BlankRow";
+import uuid from "uuid";
 
 class RowTemp extends Component {
   render() {
@@ -11,7 +12,9 @@ class RowTemp extends Component {
       <Fragment>
         <Row className="row">
           {row.map(e => (
-            <Col>{e}</Col>
+            <Col key={uuid()} className="no-pad">
+              {e}
+            </Col>
           ))}
           {isKilos === isBarKilos ? <RowDyn row={row} /> : <BlankRow />}
         </Row>

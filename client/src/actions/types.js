@@ -19,4 +19,7 @@ export const WARM_UP = "WARM_UP";
 
 //Weight types
 export const SET_WEIGHT = "SET_WEIGHT";
-export const SET_BARWEIGHT = "SET_BARWEIGHT";
+export const RESET_WEIGHT = "RESET_WEIGHT";
+export const RESET_BARWEIGHT = "RESET_BARWEIGHT";
+export const CONVERT_TO_KG = "CONVERT_TO_KG";
+export const CONVERT_TO_LB = "CONVERT_TO_LB";

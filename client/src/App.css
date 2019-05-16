@@ -1,9 +1,8 @@
 root {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,15 +13,25 @@ root {
   text-align: center;
 }
 
-h4 {
-  line-height: 1rem;
-  margin: 1rem 0;
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
 }
 
 /* Body  */
 .mainbody {
   display: grid;
   justify-content: center;
+}
+
+.body {
+  padding-bottom: 3rem;
+  margin-bottom: 10rem;
+  border-radius: 0.3rem;
+}
+
+h4 {
+  line-height: 1rem;
+  margin: 1rem 0;
 }
 
 /* Component */
@@ -37,6 +46,22 @@ h4 {
   letter-spacing: 0.2rem;
 }
 
+.cycleArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cycleButtonGroup {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.pad-left {
+  margin-left: 1.5rem;
+}
+
 /* Table */
 .Table {
   color: white;
@@ -44,9 +69,10 @@ h4 {
   text-align: center;
 }
 
-.col {
+.col.no-pad {
   margin: 0;
-  padding: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .row {
@@ -60,6 +86,7 @@ h4 {
   background: white;
   color: black;
   border: none;
+  border-radius: 0.2rem;
 }
 
 .RowHeader {
@@ -71,6 +98,12 @@ h4 {
   text-align: center;
 }
 
+.noWarm {
+  display: flex;
+  font-style: italic;
+  justify-content: center;
+  color: red;
+}
 .btn.btn-sm {
   color: white;
 }
@@ -78,10 +111,4 @@ h4 {
 form,
 .container {
   background: black;
-}
-
-.cycleButtonGroup {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0;
 }

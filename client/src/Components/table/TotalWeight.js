@@ -11,14 +11,14 @@ class TotalWeight extends Component {
     );
     return (
       <Row className="RowHeader">
-        <Col>Total Weight</Col>
-        <Col />
-        <Col />
-        <Col>
+        <Col className="no-pad">Total Weight</Col>
+        <Col className="no-pad" />
+        <Col className="no-pad" />
+        <Col className="no-pad">
           {res1.toFixed(1)}
           {" kg"}
         </Col>
-        <Col />
+        <Col className="no-pad" />
       </Row>
     );
   }

@@ -1,25 +1,26 @@
 import React, { Fragment, Component } from "react";
-import { Label, Input, Col, ButtonGroup } from "reactstrap";
-import SubmitButton from "./SubmitButton";
-import ConvertButton from "./ConvertButton";
-import ResetButton from "./ResetButton";
+import { Label, Input, Col } from "reactstrap";
 
-export default class InputWeight extends Component {
+class InputWeight extends Component {
   render() {
+    const { onChange, weight } = this.props;
     return (
       <Fragment>
         <Label for="weight" sm={3}>
           1 rep max
         </Label>
         <Col sm={4}>
-          <Input type="number" name="weight" />
+          <Input
+            type="number"
+            name="weight"
+            id="weight"
+            onChange={onChange}
+            value={weight}
+          />
         </Col>
-        <ButtonGroup>
-          <SubmitButton />
-          <ConvertButton />
-          <ResetButton />
-        </ButtonGroup>
       </Fragment>
     );
   }
 }
+
+export default InputWeight;

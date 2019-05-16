@@ -4,7 +4,7 @@ import { Button } from "reactstrap";
 class SubmitButton extends Component {
   render() {
     return (
-      <Button color="success" size="sm">
+      <Button type="submit" color="success" size="sm">
         Submit
       </Button>
     );

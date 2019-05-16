@@ -6,7 +6,6 @@ import Bench from "./Components/bench";
 // import Other from "./Components/other";
 import Tabs from "./Components/Tabs";
 import Description from "./Components/Description";
-import "./App.css";
 import { Provider } from "react-redux";
 import NaviBar from "./Components/NaviBar";
 import { TabPane, TabContent } from "reactstrap";

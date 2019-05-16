@@ -20,49 +20,48 @@ class CycleButtons extends Component {
 
   render() {
     return (
-      <div className="cycleButtonGroup">
-        <Button
-          color="success"
-          size="sm"
-          className="SuccessButton"
-          onClick={this.props.setWarmUp}
-        >
-          Warm up
-        </Button>{" "}
+      <div className="cycleArea">
+        <div className="cycleButtonGroup">
+          <ButtonGroup>
+            <Button
+              color="primary"
+              size="sm"
+              onClick={this.props.setCycleA}
+              active={this.props.isCycleA === true}
+            >
+              Cycle A
+            </Button>{" "}
+            <Button
+              color="primary"
+              size="sm"
+              onClick={this.props.setCycleB}
+              active={this.props.isCycleB === true}
+            >
+              Cycle B
+            </Button>{" "}
+            <Button
+              color="primary"
+              size="sm"
+              onClick={this.props.setCycleC}
+              active={this.props.isCycleC === true}
+            >
+              Cycle C
+            </Button>
+            <Button
+              color="warning"
+              size="sm"
+              onClick={this.props.setDeload}
+              active={this.props.isDeload === true}
+            >
+              Deload
+            </Button>{" "}
+          </ButtonGroup>{" "}
+        </div>
         <ButtonGroup>
-          <Button
-            color="primary"
-            size="sm"
-            onClick={this.props.setCycleA}
-            active={this.props.isCycleA === true}
-          >
-            Cycle A
-          </Button>{" "}
-          <Button
-            color="primary"
-            size="sm"
-            onClick={this.props.setCycleB}
-            active={this.props.isCycleB === true}
-          >
-            Cycle B
-          </Button>{" "}
-          <Button
-            color="primary"
-            size="sm"
-            onClick={this.props.setCycleC}
-            active={this.props.isCycleC === true}
-          >
-            Cycle C
+          <Button color="success" size="sm" onClick={this.props.setWarmUp}>
+            Warm up
           </Button>
-          <Button
-            color="warning"
-            size="sm"
-            onClick={this.props.setDeload}
-            active={this.props.isDeload === true}
-          >
-            Deload
-          </Button>{" "}
-        </ButtonGroup>{" "}
+        </ButtonGroup>
       </div>
     );
   }

@@ -5,11 +5,11 @@ import "../../App.css";
 const TableHeader = () => (
   <Fragment>
     <Row className="RowHeader">
-      <Col>Set #</Col>
-      <Col>% of max</Col>
-      <Col>Reps</Col>
-      <Col>Weight (W)</Col>
-      <Col>W - B</Col>
+      <Col className="no-pad">Set #</Col>
+      <Col className="no-pad">% of max</Col>
+      <Col className="no-pad">Reps</Col>
+      <Col className="no-pad">Weight (W)</Col>
+      <Col className="no-pad">W - B</Col>
     </Row>
   </Fragment>
 );
