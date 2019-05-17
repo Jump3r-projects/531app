@@ -6,18 +6,19 @@ import TableHeader from "../table/TableHeader";
 import WarnMsg from "../table/WarnMsg";
 import NoWarmUp from "../table/NoWarmUp";
 import Cycle from "./Cycle";
+import TotalWeight from "../table/TotalWeight";
 
 class Cycles extends Component {
   state = {
     rowA1: [1, 65, 5],
     rowA2: [2, 75, 5],
-    rowA3: [3, 85, "5+"],
+    rowA3: [3, 85, 5],
     rowB1: [1, 70, 3],
     rowB2: [2, 80, 3],
-    rowB3: [3, 90, "3+"],
+    rowB3: [3, 90, 3],
     rowC1: [1, 75, 5],
     rowC2: [2, 85, 3],
-    rowC3: [3, 95, "1+"],
+    rowC3: [3, 95, 1],
     rowD1: [1, 40, 5],
     rowD2: [2, 50, 5],
     rowD3: [3, 60, 5]
@@ -57,9 +58,23 @@ class Cycles extends Component {
         {isDeload && (
           <Fragment>
             <NoWarmUp />
-            <Cycle row1={rowD1} row2={rowD2} row3={rowD3} />{" "}
+            <Cycle row1={rowD1} row2={rowD2} row3={rowD3} />
           </Fragment>
         )}
+        <TotalWeight
+          rowA1={rowA1}
+          rowA2={rowA2}
+          rowA3={rowA3}
+          rowB1={rowB1}
+          rowB2={rowB2}
+          rowB3={rowB3}
+          rowC1={rowC1}
+          rowC2={rowC2}
+          rowC3={rowC3}
+          rowD1={rowD1}
+          rowD2={rowD2}
+          rowD3={rowD3}
+        />
         {isKilos !== isBarKilos ? <WarnMsg /> : null}
       </Container>
     );

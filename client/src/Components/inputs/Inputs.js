@@ -6,8 +6,10 @@ import {
   setWeight,
   resetWeight,
   resetBarWeight,
-  convertToKg,
-  convertToLb
+  convertWeightToKg,
+  convertWeightToLb,
+  convertBarToKg,
+  convertBarToLb
 } from "../../actions/weightActions";
 import InputWeight from "./InputWeight";
 import InputBar from "./InputBar";
@@ -52,20 +54,44 @@ class Inputs extends Component {
     e.preventDefault();
   };
 
-  convertToKg = e => {
+  convertWeightToKg = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
-    if ((e.target.name = "weight")) {
-      this.props.convertToKg(this.state.weight);
-    }
-    if ((e.target.name = "barWeight")) {
-      this.props.convertToKg(this.state.barWeight);
-    }
+    const { weight } = this.state;
+    let converted = (Math.round(weight * 0.45359237 * 2) / 2).toFixed(1);
+    this.setState({
+      weight: converted
+    });
+    this.props.convertWeightToKg({ converted });
   };
 
-  convertToLb = e => {
+  convertWeightToLb = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    const { weight } = this.state;
+    let converted = (Math.round((weight / 0.45359237) * 2) / 2).toFixed(1);
+    this.setState({
+      weight: converted
+    });
+    this.props.convertWeightToLb({ converted });
+  };
+
+  convertBarToKg = e => {
+    e.preventDefault();
+    const { barWeight } = this.state;
+    let converted = (Math.round(barWeight * 0.45359237 * 2) / 2).toFixed(1);
+    this.setState({
+      barWeight: converted
+    });
+    this.props.convertBarToKg({ converted });
+  };
+
+  convertBarToLb = e => {
+    e.preventDefault();
+    const { barWeight } = this.state;
+    let converted = (Math.round((barWeight / 0.45359237) * 2) / 2).toFixed(1);
+    this.setState({
+      barWeight: converted
+    });
+    this.props.convertBarToLb({ converted });
   };
 
   render() {
@@ -76,8 +102,8 @@ class Inputs extends Component {
           <InputWeight name="weight" onChange={this.onChange} weight={weight} />
           <ResetWeightButton resetWeight={this.resetWeight} />
           <ConvertWeightButton
-            convertToKg={this.convertToKg}
-            convertToLb={this.convertToLb}
+            convertWeightToKg={this.convertWeightToKg}
+            convertWeightToLb={this.convertWeightToLb}
           />
           <ButtonGroup className="pad-left">
             <SubmitButton onSubmit={this.onSubmit} />
@@ -91,8 +117,8 @@ class Inputs extends Component {
           />
           <ResetBarButton resetBarWeight={this.resetBarWeight} />
           <ConvertBarButton
-            convertToKg={this.convertToKg}
-            convertToLb={this.convertToLb}
+            convertBarToKg={this.convertBarToKg}
+            convertBarToLb={this.convertBarToLb}
           />
         </FormGroup>
       </Form>
@@ -100,14 +126,15 @@ class Inputs extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isKilos: state.weight.isKilos,
-  isBarKilos: state.weight.isBarKilos,
-  weight: state.weight.weight,
-  barWeight: state.weight.barWeight
-});
-
 export default connect(
-  mapStateToProps,
-  { setWeight, resetWeight, resetBarWeight, convertToKg, convertToLb }
+  null,
+  {
+    setWeight,
+    resetWeight,
+    resetBarWeight,
+    convertWeightToKg,
+    convertWeightToLb,
+    convertBarToKg,
+    convertBarToLb
+  }
 )(Inputs);

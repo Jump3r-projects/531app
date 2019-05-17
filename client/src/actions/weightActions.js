@@ -2,8 +2,10 @@ import {
   SET_WEIGHT,
   RESET_WEIGHT,
   RESET_BARWEIGHT,
-  CONVERT_TO_KG,
-  CONVERT_TO_LB
+  CONVERT_WEIGHT_TO_KG,
+  CONVERT_WEIGHT_TO_LB,
+  CONVERT_BAR_TO_KG,
+  CONVERT_BAR_TO_LB
 } from "./types";
 
 export const setWeight = ({ weight, barWeight }) => {
@@ -25,16 +27,30 @@ export const resetBarWeight = () => {
   };
 };
 
-export const convertToKg = ({ weight, barWeight }) => {
+export const convertWeightToKg = ({ converted }) => {
   return {
-    type: CONVERT_TO_KG,
-    payload: { weight, barWeight }
+    type: CONVERT_WEIGHT_TO_KG,
+    payload: { converted }
   };
 };
 
-export const convertToLb = ({ weight, barWeight }) => {
+export const convertWeightToLb = ({ converted }) => {
   return {
-    type: CONVERT_TO_LB,
-    payload: { weight, barWeight }
+    type: CONVERT_WEIGHT_TO_LB,
+    payload: { converted }
+  };
+};
+
+export const convertBarToKg = ({ converted }) => {
+  return {
+    type: CONVERT_BAR_TO_KG,
+    payload: { converted }
+  };
+};
+
+export const convertBarToLb = ({ converted }) => {
+  return {
+    type: CONVERT_BAR_TO_LB,
+    payload: { converted }
   };
 };

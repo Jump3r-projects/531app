@@ -5,17 +5,27 @@ import { FaExchangeAlt } from "react-icons/fa";
 
 class ConvertWeightButton extends Component {
   render() {
-    const { convertToKg, convertToLb, isKilos } = this.props;
+    const { convertWeightToKg, convertWeightToLb, isKilos } = this.props;
     return (
       <Fragment>
         {isKilos ? (
-          <Button name="weight" color="info" size="sm" onClick={convertToLb}>
+          <Button
+            name="weight"
+            color="info"
+            size="sm"
+            onClick={convertWeightToLb}
+          >
             {"kg "}
             {<FaExchangeAlt />}
             {" lb"}
           </Button>
         ) : (
-          <Button name="weight" color="info" size="sm" onClick={convertToKg}>
+          <Button
+            name="weight"
+            color="info"
+            size="sm"
+            onClick={convertWeightToKg}
+          >
             {"lb "}
             {<FaExchangeAlt />}
             {" kg"}
