@@ -8,5 +8,9 @@ export default combineReducers({
   auth: authReducer,
   error: errorReducer,
   setCycle: setCycleReducer,
-  weight: weightReducer
+  weight: weightReducer,
+  squat: weightReducer,
+  deadlift: weightReducer,
+  ohpress: weightReducer,
+  other: weightReducer
 });

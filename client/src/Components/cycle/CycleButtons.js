@@ -19,6 +19,17 @@ class CycleButtons extends Component {
   };
 
   render() {
+    const {
+      isCycleA,
+      isCycleB,
+      isCycleC,
+      isDeload,
+      setWarmUp,
+      setCycleA,
+      setCycleB,
+      setCycleC,
+      setDeload
+    } = this.props;
     return (
       <div className="cycleArea">
         <div className="cycleButtonGroup">
@@ -26,39 +37,39 @@ class CycleButtons extends Component {
             <Button
               color="primary"
               size="sm"
-              onClick={this.props.setCycleA}
-              active={this.props.isCycleA === true}
+              onClick={setCycleA}
+              active={isCycleA === true}
             >
               Cycle A
             </Button>{" "}
             <Button
               color="primary"
               size="sm"
-              onClick={this.props.setCycleB}
-              active={this.props.isCycleB === true}
+              onClick={setCycleB}
+              active={isCycleB === true}
             >
               Cycle B
             </Button>{" "}
             <Button
               color="primary"
               size="sm"
-              onClick={this.props.setCycleC}
-              active={this.props.isCycleC === true}
+              onClick={setCycleC}
+              active={isCycleC === true}
             >
               Cycle C
             </Button>
             <Button
               color="warning"
               size="sm"
-              onClick={this.props.setDeload}
-              active={this.props.isDeload === true}
+              onClick={setDeload}
+              active={isDeload === true}
             >
               Deload
             </Button>{" "}
           </ButtonGroup>{" "}
         </div>
         <ButtonGroup>
-          <Button color="success" size="sm" onClick={this.props.setWarmUp}>
+          <Button color="success" size="sm" onClick={setWarmUp}>
             Warm up
           </Button>
         </ButtonGroup>

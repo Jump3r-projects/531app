@@ -47,13 +47,21 @@ class App extends Component {
                   <Bench />
                 </TabPane>
 
-                <TabPane tabId="2">{/* <Deadlift /> */}</TabPane>
+                {/* <TabPane tabId="2">
+                  <Deadlift />
+                </TabPane>
 
-                <TabPane tabId="3">{/* <Squat /> */}</TabPane>
+                <TabPane tabId="3">
+                  <Squat />
+                </TabPane>
 
-                <TabPane tabId="4">{/* <OHPress /> */}</TabPane>
+                <TabPane tabId="4">
+                  <OHPress />
+                </TabPane>
 
-                <TabPane tabId="5">{/* <Other /> */}</TabPane>
+                <TabPane tabId="5">
+                  <Other />
+                </TabPane> */}
               </TabContent>
             </div>
           </div>
