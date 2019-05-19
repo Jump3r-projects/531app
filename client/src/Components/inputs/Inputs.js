@@ -22,7 +22,9 @@ import SubmitButton from "./SubmitButton";
 class Inputs extends Component {
   state = {
     weight: 0,
-    barWeight: 0
+    barWeight: 0,
+    isKilos: true,
+    isBarKilos: true
   };
 
   onChange = e => {
@@ -59,7 +61,8 @@ class Inputs extends Component {
     const { weight } = this.state;
     let converted = (Math.round(weight * 0.45359237 * 2) / 2).toFixed(1);
     this.setState({
-      weight: converted
+      weight: converted,
+      isKilos: false
     });
     this.props.convertWeightToKg({ converted });
   };
@@ -69,7 +72,8 @@ class Inputs extends Component {
     const { weight } = this.state;
     let converted = (Math.round((weight / 0.45359237) * 2) / 2).toFixed(1);
     this.setState({
-      weight: converted
+      weight: converted,
+      isKilos: true
     });
     this.props.convertWeightToLb({ converted });
   };
@@ -79,7 +83,8 @@ class Inputs extends Component {
     const { barWeight } = this.state;
     let converted = (Math.round(barWeight * 0.45359237 * 2) / 2).toFixed(1);
     this.setState({
-      barWeight: converted
+      barWeight: converted,
+      isBarKilos: true
     });
     this.props.convertBarToKg({ converted });
   };
@@ -89,7 +94,8 @@ class Inputs extends Component {
     const { barWeight } = this.state;
     let converted = (Math.round((barWeight / 0.45359237) * 2) / 2).toFixed(1);
     this.setState({
-      barWeight: converted
+      barWeight: converted,
+      isBarKilos: false
     });
     this.props.convertBarToLb({ converted });
   };

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import Bench from "./Components/bench";
-// import Deadlift from "./Components/deadlift";
-// import Squat from "./Components/squat";
-// import OHPress from "./Components/ohpress";
-// import Other from "./Components/other";
+import Lift from "./Components/Lift";
 import Tabs from "./Components/Tabs";
 import Description from "./Components/Description";
 import { Provider } from "react-redux";
@@ -14,7 +10,11 @@ import { loadUser } from "./actions/authActions";
 import PropTypes from "prop-types";
 
 class App extends Component {
-  state = { activeTab: "1" };
+  state = {
+    activeTab: "1",
+    tabs: ["1", "2", "3", "4", "5"],
+    liftname: ["Bench", "Squat", "Deadlift", "OH Press", "Other"]
+  };
 
   static propTypes = {
     loadUser: PropTypes.func.isRequired
@@ -33,35 +33,27 @@ class App extends Component {
   };
 
   render() {
+    const { liftname, tabs } = this.state;
     return (
       <Provider store={store}>
         <div>
           <NaviBar />
-          <Tabs toggle={this.toggle} activeTab={this.state.activeTab} />
+          <Tabs
+            toggle={this.toggle}
+            activeTab={this.state.activeTab}
+            tabs={tabs}
+            liftname={liftname}
+          />
           <div className="App">
             <div className="mainbody">
               <br />
               <Description />
               <TabContent activeTab={this.state.activeTab}>
-                <TabPane tabId="1">
-                  <Bench />
-                </TabPane>
-
-                {/* <TabPane tabId="2">
-                  <Deadlift />
-                </TabPane>
-
-                <TabPane tabId="3">
-                  <Squat />
-                </TabPane>
-
-                <TabPane tabId="4">
-                  <OHPress />
-                </TabPane>
-
-                <TabPane tabId="5">
-                  <Other />
-                </TabPane> */}
+                {tabs.map((e, i) => (
+                  <TabPane key={i} tabId={e}>
+                    <Lift liftname={liftname[e - 1].toUpperCase()} />
+                  </TabPane>
+                ))}
               </TabContent>
             </div>
           </div>

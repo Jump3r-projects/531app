@@ -17,6 +17,11 @@ root {
   color: white;
 }
 
+/* Modal */
+.form-group {
+  background: white;
+}
+
 /* Body  */
 .mainbody {
   display: grid;

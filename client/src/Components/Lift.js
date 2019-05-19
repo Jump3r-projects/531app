@@ -4,11 +4,12 @@ import { Container } from "reactstrap";
 import CycleButtons from "./cycle/CycleButtons";
 import Inputs from "./inputs/Inputs";
 
-class Bench extends Component {
+class Lift extends Component {
   render() {
+    const { liftname } = this.props;
     return (
       <Container className="body">
-        <div className="liftHeader">BENCH</div>
+        <div className="liftHeader">{liftname}</div>
         <Inputs />
         <CycleButtons />
         <Cycles />
@@ -17,4 +18,4 @@ class Bench extends Component {
   }
 }
 
-export default Bench;
+export default Lift;
