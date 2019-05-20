@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 
 class RowDyn extends Component {
   static propTypes = {
-    weight: PropTypes.Number,
-    barWeight: PropTypes.Number,
+    weight: PropTypes.number,
+    barWeight: PropTypes.number,
     round: PropTypes.func
   };
 
