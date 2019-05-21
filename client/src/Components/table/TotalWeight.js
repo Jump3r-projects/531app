@@ -5,12 +5,27 @@ import { round } from "../../actions/calculateFunctions";
 
 class TotalWeight extends Component {
   render() {
-    const { rowA1, rowA2, rowA3 } = this.props;
-    const { rowB1, rowB2, rowB3 } = this.props;
-    const { rowC1, rowC2, rowC3 } = this.props;
-    const { rowD1, rowD2, rowD3 } = this.props;
-    const { weight, isKilos, isBarKilos } = this.props;
-    const { warmUpToggle, isCycleA, isCycleB, isCycleC } = this.props;
+    const {
+      rowA1,
+      rowA2,
+      rowA3,
+      rowB1,
+      rowB2,
+      rowB3,
+      rowC1,
+      rowC2,
+      rowC3,
+      rowD1,
+      rowD2,
+      rowD3,
+      weight,
+      isKilos,
+      isBarKilos,
+      warmUpToggle,
+      isCycleA,
+      isCycleB,
+      isCycleC
+    } = this.props;
 
     let warmUpTotal = warmUpToggle
       ? round(weight * (rowD1[1] / 100 + rowD2[1] / 100 + rowD3[1] / 100) * 5)
@@ -48,19 +63,12 @@ class TotalWeight extends Component {
         <Col className="no-pad" />
         <Col className="no-pad" />
         {isKilos && isBarKilos && (
-          <Col className="no-pad">
-            {finalTotal.toFixed(1)}
-            {" kg"}
-          </Col>
+          <Col className="no-pad">{finalTotal.toFixed(1) + " kg"}</Col>
         )}
         {!isKilos && !isBarKilos && (
-          <Col className="no-pad">
-            {finalTotal.toFixed(1)}
-            {" Lb"}
-          </Col>
+          <Col className="no-pad">{finalTotal.toFixed(1) + " Lb"}</Col>
         )}
-        {isKilos && !isBarKilos && <Col className="no-pad">0.0</Col>}
-        {!isKilos && isBarKilos && <Col className="no-pad">0.0</Col>}
+        {isKilos !== isBarKilos ? <Col className="no-pad">0.0</Col> : null}
         <Col className="no-pad" />
       </Row>
     );
@@ -68,10 +76,6 @@ class TotalWeight extends Component {
 }
 
 const mapStateToProps = state => ({
-  weight: state.weight.weight,
-  barWeight: state.weight.barWeight,
-  isKilos: state.weight.isKilos,
-  isBarKilos: state.weight.isBarKilos,
   warmUpToggle: state.setCycle.warmUpToggle,
   isCycleA: state.setCycle.isCycleA,
   isCycleB: state.setCycle.isCycleB,

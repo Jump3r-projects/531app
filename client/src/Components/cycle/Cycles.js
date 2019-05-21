@@ -9,31 +9,16 @@ import Cycle from "./Cycle";
 import TotalWeight from "../table/TotalWeight";
 
 class Cycles extends Component {
-  state = {
-    rowA1: [1, 65, 5],
-    rowA2: [2, 75, 5],
-    rowA3: [3, 85, 5],
-    rowB1: [1, 70, 3],
-    rowB2: [2, 80, 3],
-    rowB3: [3, 90, 3],
-    rowC1: [1, 75, 5],
-    rowC2: [2, 85, 3],
-    rowC3: [3, 95, 1],
-    rowD1: [1, 40, 5],
-    rowD2: [2, 50, 5],
-    rowD3: [3, 60, 5]
-  };
-
   render() {
     const {
+      weight,
+      barWeight,
       isCycleA,
       isCycleB,
       isCycleC,
       isDeload,
       isKilos,
-      isBarKilos
-    } = this.props;
-    const {
+      isBarKilos,
       rowA1,
       rowA2,
       rowA3,
@@ -46,22 +31,54 @@ class Cycles extends Component {
       rowD1,
       rowD2,
       rowD3
-    } = this.state;
+    } = this.props;
 
     return (
       <Container className="Table Cycle">
         <TableHeader />
-        {!isDeload && <Warmup />}
-        {isCycleA && <Cycle row1={rowA1} row2={rowA2} row3={rowA3} />}
-        {isCycleB && <Cycle row1={rowB1} row2={rowB2} row3={rowB3} />}
-        {isCycleC && <Cycle row1={rowC1} row2={rowC2} row3={rowC3} />}
+        {!isDeload && <Warmup weight={weight} barWeight={barWeight} />}
+        {isCycleA && (
+          <Cycle
+            row1={rowA1}
+            row2={rowA2}
+            row3={rowA3}
+            weight={weight}
+            barWeight={barWeight}
+          />
+        )}
+        {isCycleB && (
+          <Cycle
+            row1={rowB1}
+            row2={rowB2}
+            row3={rowB3}
+            weight={weight}
+            barWeight={barWeight}
+          />
+        )}
+        {isCycleC && (
+          <Cycle
+            row1={rowC1}
+            row2={rowC2}
+            row3={rowC3}
+            weight={weight}
+            barWeight={barWeight}
+          />
+        )}
         {isDeload && (
           <Fragment>
             <NoWarmUp />
-            <Cycle row1={rowD1} row2={rowD2} row3={rowD3} />
+            <Cycle
+              row1={rowD1}
+              row2={rowD2}
+              row3={rowD3}
+              weight={weight}
+              barWeight={barWeight}
+            />
           </Fragment>
         )}
         <TotalWeight
+          isKilos={isKilos}
+          isBarKilos={isBarKilos}
           rowA1={rowA1}
           rowA2={rowA2}
           rowA3={rowA3}
@@ -74,6 +91,7 @@ class Cycles extends Component {
           rowD1={rowD1}
           rowD2={rowD2}
           rowD3={rowD3}
+          weight={weight}
         />
         {isKilos !== isBarKilos ? <WarnMsg /> : null}
       </Container>
@@ -83,8 +101,6 @@ class Cycles extends Component {
 
 const mapStateToProps = state => ({
   warmUpToggle: state.setCycle.warmUpToggle,
-  isKilos: state.weight.isKilos,
-  isBarKilos: state.weight.isBarKilos,
   isCycleA: state.setCycle.isCycleA,
   isCycleB: state.setCycle.isCycleB,
   isCycleC: state.setCycle.isCycleC,

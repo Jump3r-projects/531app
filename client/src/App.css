@@ -34,9 +34,13 @@ root {
   border-radius: 0.3rem;
 }
 
+.container {
+  max-width: 530px;
+}
+
 h4 {
   line-height: 1rem;
-  margin: 1rem 0;
+  margin: 1rem;
 }
 
 /* Component */
@@ -80,8 +84,12 @@ h4 {
   padding-left: 0;
 }
 
+.col {
+  max-width: 90%;
+}
+
 .row {
-  padding: 5px;
+  padding: 0.2rem;
   border-bottom: 1px #d0d0d0 solid;
 }
 

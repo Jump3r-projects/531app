@@ -2,15 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Col } from "reactstrap";
 import { connect } from "react-redux";
 import { round } from "../../actions/calculateFunctions";
-import PropTypes from "prop-types";
 
 class RowDyn extends Component {
-  static propTypes = {
-    weight: PropTypes.number,
-    barWeight: PropTypes.number,
-    round: PropTypes.func
-  };
-
   render() {
     const { weight, barWeight, row } = this.props;
     return (
@@ -26,12 +19,7 @@ class RowDyn extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  weight: state.weight.weight,
-  barWeight: state.weight.barWeight
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { round }
 )(RowDyn);

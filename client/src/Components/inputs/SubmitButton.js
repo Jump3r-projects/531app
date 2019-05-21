@@ -5,7 +5,7 @@ class SubmitButton extends Component {
   render() {
     return (
       <Button type="submit" color="success" size="sm">
-        Submit
+        Save
       </Button>
     );
   }

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
 import { Button } from "reactstrap";
 import { FaExchangeAlt } from "react-icons/fa";
 
@@ -36,8 +35,4 @@ class ConvertWeightButton extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isKilos: state.weight.isKilos
-});
-
-export default connect(mapStateToProps)(ConvertWeightButton);
+export default ConvertWeightButton;

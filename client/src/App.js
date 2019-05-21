@@ -33,14 +33,14 @@ class App extends Component {
   };
 
   render() {
-    const { liftname, tabs } = this.state;
+    const { liftname, tabs, activeTab } = this.state;
     return (
       <Provider store={store}>
         <div>
           <NaviBar />
           <Tabs
             toggle={this.toggle}
-            activeTab={this.state.activeTab}
+            activeTab={activeTab}
             tabs={tabs}
             liftname={liftname}
           />
@@ -48,7 +48,7 @@ class App extends Component {
             <div className="mainbody">
               <br />
               <Description />
-              <TabContent activeTab={this.state.activeTab}>
+              <TabContent activeTab={activeTab}>
                 {tabs.map((e, i) => (
                   <TabPane key={i} tabId={e}>
                     <Lift liftname={liftname[e - 1].toUpperCase()} />
