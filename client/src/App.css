@@ -7,6 +7,10 @@ root {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.tab-content {
+  margin-top: 1rem;
+}
+
 /* NavBar */
 .nav-tabs {
   background-color: #e9f4ff;
@@ -124,4 +128,41 @@ h4 {
 form,
 .container {
   background: black;
+}
+
+@media (max-width: 595px) {
+  .body {
+    padding-bottom: 2rem;
+    margin-bottom: 7rem;
+    border-radius: 0.2rem;
+  }
+
+  .tab-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tab-pane {
+    max-width: 90%;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  li {
+    font-size: 0.9rem;
+  }
+
+  .liftHeader {
+    font-size: 1rem;
+  }
+
+  .col-sm-4 {
+    width: 50%;
+  }
+
+  .col.no-pad {
+    font-size: 0.9rem;
+  }
 }
