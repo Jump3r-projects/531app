@@ -17,13 +17,31 @@ class Warmup extends Component {
 
   render() {
     const { row1, row2, row3 } = this.state;
-    const { warmUpToggle, weight, barWeight } = this.props;
+    const { warmUpToggle, weight, barWeight, isKilos, isBarKilos } = this.props;
 
     return warmUpToggle ? (
       <Fragment>
-        <RowTemp row={row1} weight={weight} barWeight={barWeight} />
-        <RowTemp row={row2} weight={weight} barWeight={barWeight} />
-        <RowTemp row={row3} weight={weight} barWeight={barWeight} />
+        <RowTemp
+          row={row1}
+          weight={weight}
+          barWeight={barWeight}
+          isKilos={isKilos}
+          isBarKilos={isBarKilos}
+        />
+        <RowTemp
+          row={row2}
+          weight={weight}
+          barWeight={barWeight}
+          isKilos={isKilos}
+          isBarKilos={isBarKilos}
+        />
+        <RowTemp
+          row={row3}
+          weight={weight}
+          barWeight={barWeight}
+          isKilos={isKilos}
+          isBarKilos={isBarKilos}
+        />
       </Fragment>
     ) : null;
   }

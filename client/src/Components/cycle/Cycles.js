@@ -36,7 +36,14 @@ class Cycles extends Component {
     return (
       <Container className="Table Cycle">
         <TableHeader />
-        {!isDeload && <Warmup weight={weight} barWeight={barWeight} />}
+        {!isDeload && (
+          <Warmup
+            weight={weight}
+            barWeight={barWeight}
+            isKilos={isKilos}
+            isBarKilos={isBarKilos}
+          />
+        )}
         {isCycleA && (
           <Cycle
             row1={rowA1}
