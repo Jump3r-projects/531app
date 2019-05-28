@@ -19,21 +19,21 @@ class Cycle extends Component {
           row={row1}
           weight={weight}
           barWeight={barWeight}
-          isKilo={isKilos}
+          isKilos={isKilos}
           isBarKilos={isBarKilos}
         />
         <RowTemp
           row={row2}
           weight={weight}
           barWeight={barWeight}
-          isKilo={isKilos}
+          isKilos={isKilos}
           isBarKilos={isBarKilos}
         />
         <RowTemp
           row={row3}
           weight={weight}
           barWeight={barWeight}
-          isKilo={isKilos}
+          isKilos={isKilos}
           isBarKilos={isBarKilos}
         />
       </Fragment>

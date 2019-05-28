@@ -44,6 +44,8 @@ class Cycles extends Component {
             row3={rowA3}
             weight={weight}
             barWeight={barWeight}
+            isKilos={isKilos}
+            isBarKilos={isBarKilos}
           />
         )}
         {isCycleB && (
@@ -53,6 +55,8 @@ class Cycles extends Component {
             row3={rowB3}
             weight={weight}
             barWeight={barWeight}
+            isKilos={isKilos}
+            isBarKilos={isBarKilos}
           />
         )}
         {isCycleC && (
@@ -62,6 +66,8 @@ class Cycles extends Component {
             row3={rowC3}
             weight={weight}
             barWeight={barWeight}
+            isKilos={isKilos}
+            isBarKilos={isBarKilos}
           />
         )}
         {isDeload && (
@@ -73,6 +79,8 @@ class Cycles extends Component {
               row3={rowD3}
               weight={weight}
               barWeight={barWeight}
+              isKilos={isKilos}
+              isBarKilos={isBarKilos}
             />
           </Fragment>
         )}
