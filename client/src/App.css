@@ -83,9 +83,12 @@ h4 {
 }
 
 .col.no-pad {
-  margin: 0;
+  margin: 0.25rem 0;
   padding-right: 0;
   padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .col {
@@ -130,7 +133,7 @@ form,
   background: black;
 }
 
-@media (max-width: 595px) {
+@media (max-width: 576px) {
   .body {
     padding-bottom: 2rem;
     margin-bottom: 7rem;
@@ -158,11 +161,31 @@ form,
     font-size: 1rem;
   }
 
+  form {
+    margin: 0 0.75rem;
+  }
+
+  .cycleArea {
+    margin: 0 0.75rem;
+  }
+
+  .cycleButtonGroup {
+    margin: 0 0rem;
+  }
+
   .col-sm-4 {
-    width: 50%;
+    width: 100%;
   }
 
   .col.no-pad {
-    font-size: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .btn.btn-sm.btn-danger {
+    margin-left: 15px;
+  }
+
+  .btn.btn-sm {
+    margin: 1rem 0;
   }
 }
